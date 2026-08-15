@@ -13,4 +13,4 @@ User-agent: PerplexityBot
 Allow: /
 Allow: /llms.txt
 
-Sitemap: https://davisch.dev/sitemap.xml
+Sitemap: https://www.davisch.dev/sitemap.xml
