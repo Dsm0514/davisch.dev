@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Davi Schmitz | Desenvolvedor Full-Stack</title>
+    <meta
+      name="description"
+      content="Portfólio pessoal de Davi Schmitz, desenvolvedor Full-Stack. Projetos, habilidades e contato."
+    />
+    <meta name="theme-color" content="#FDFDFD" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Roda antes do CSS pintar a página: lê o tema salvo (ou a preferência
+         do sistema) e crava em <html> pra não piscar o tema errado no
+         primeiro frame. A troca em si (clique no botão) é feita depois pelo
+         módulo src/js/theme.js. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('davisch-theme')
+          var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          document.documentElement.dataset.theme = theme
+        } catch (e) {}
+      })()
+    </script>
+
+    <!-- Favicon reage ao tema do SO/navegador (prefers-color-scheme), não ao
+         toggle de tema do site — suporte real em Chromium/Safari; no Firefox
+         cai no favicon.ico estático abaixo. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="canonical" href="https://davisch.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="davisch.dev" />
+    <meta property="og:title" content="Davi Schmitz | Desenvolvedor Full-Stack" />
+    <meta
+      property="og:description"
+      content="Portfólio pessoal de Davi Schmitz, desenvolvedor Full-Stack. Projetos, habilidades e contato."
+    />
+    <meta property="og:url" content="https://davisch.dev/" />
+    <meta property="og:image" content="https://davisch.dev/assets/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLMs Information" />
+
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body class="min-h-dvh bg-ink font-body text-paper">
+    <a
+      href="#main"
+      class="btn-detail fixed left-4 top-4 z-[60] -translate-y-24 rounded px-4 py-2 text-sm transition-transform duration-200 focus:translate-y-0"
+    >
+      Skip to content
+    </a>
+
+    <!-- ============================== HEADER ============================== -->
+    <header
+      data-site-header
+      data-scrolled="false"
+      class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-300 data-[scrolled=true]:border-gray-800 data-[scrolled=true]:bg-ink/90 data-[scrolled=true]:backdrop-blur-md"
+    >
+      <div class="mx-auto flex h-20 w-full max-w-[1920px] items-center justify-between px-6 md:px-10">
+        <a href="#home" aria-label="davisch.dev" class="shrink-0">
+          <img
+            data-logo="nav"
+            src="/assets/images/logo-escura.svg"
+            alt="davisch.dev"
+            width="150"
+            height="40"
+            class="h-8 w-auto md:h-9"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </a>
+
+        <nav aria-label="Main navigation" class="hidden items-center gap-8 lg:flex">
+          <a class="nav-link link-underline flex items-center gap-2 text-sm text-gray-300 transition-colors duration-300 hover:text-paper" href="#home" data-nav-link="home">
+            <span aria-hidden="true" class="nav-dot h-1 w-1 rounded-full bg-current"></span>
+            <span data-i18n="nav.home">Home</span>
+          </a>
+          <a class="nav-link link-underline flex items-center gap-2 text-sm text-gray-300 transition-colors duration-300 hover:text-paper" href="#about" data-nav-link="about">
+            <span aria-hidden="true" class="nav-dot h-1 w-1 rounded-full bg-current"></span>
+            <span data-i18n="nav.about">About</span>
+          </a>
+          <a class="nav-link link-underline flex items-center gap-2 text-sm text-gray-300 transition-colors duration-300 hover:text-paper" href="#work" data-nav-link="work">
+            <span aria-hidden="true" class="nav-dot h-1 w-1 rounded-full bg-current"></span>
+            <span data-i18n="nav.work">Work</span>
+          </a>
+          <a class="nav-link link-underline flex items-center gap-2 text-sm text-gray-300 transition-colors duration-300 hover:text-paper" href="#skills" data-nav-link="skills">
+            <span aria-hidden="true" class="nav-dot h-1 w-1 rounded-full bg-current"></span>
+            <span data-i18n="nav.skills">Skills</span>
+          </a>
+          <a class="nav-link link-underline flex items-center gap-2 text-sm text-gray-300 transition-colors duration-300 hover:text-paper" href="#contact" data-nav-link="contact">
+            <span aria-hidden="true" class="nav-dot h-1 w-1 rounded-full bg-current"></span>
+            <span data-i18n="nav.contact">Contact</span>
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <!-- Botão de tema claro/escuro -->
+          <button
+            type="button"
+            data-theme-toggle
+            aria-pressed="false"
+            aria-label="Toggle theme"
+            data-i18n-attr="aria-label:nav.themeLabel"
+            class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-700 text-paper transition-colors duration-200 hover:border-paper"
+          >
+            <svg data-icon-sun viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+            <svg data-icon-moon viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="currentColor" aria-hidden="true">
+              <path d="M20.74 13.05a8.09 8.09 0 0 1-9.9-9.8.75.75 0 0 0-.95-1A10.05 10.05 0 1 0 21.7 14a.75.75 0 0 0-.96-.95z" />
+            </svg>
+          </button>
+
+          <!-- Seletor de idiomas (bandeiras) -->
+          <div data-lang-switcher class="relative">
+            <button
+              type="button"
+              data-lang-toggle
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-label="Language"
+              data-i18n-attr="aria-label:nav.languageLabel"
+              class="flex items-center gap-2 rounded-full border border-gray-800 px-3 py-1.5 text-xs text-gray-300 transition-colors duration-200 hover:border-paper hover:text-paper"
+            >
+              <!-- PLACEHOLDER: bandeira será substituída pelo SVG final -->
+              <img
+                data-lang-current-flag
+                src="/assets/flags/bandeira-us.svg"
+                alt=""
+                aria-hidden="true"
+                width="20"
+                height="14"
+                class="h-3.5 w-5 object-cover"
+              />
+              <span data-lang-current-code>EN</span>
+              <svg viewBox="0 0 12 8" class="h-2 w-3" aria-hidden="true">
+                <path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <ul
+              data-lang-menu
+              data-open="false"
+              role="menu"
+              class="absolute right-0 top-[calc(100%+0.75rem)] w-52 origin-top-right rounded-lg border border-gray-800 bg-ink py-2 opacity-0 shadow-2xl shadow-black/50 transition-all duration-200 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 data-[open=false]:pointer-events-none data-[open=false]:-translate-y-2"
+            ></ul>
+          </div>
+
+          <a
+            href="#contact"
+            data-hover-scale
+            class="btn-detail hidden rounded-full px-5 py-2.5 text-sm lg:inline-block"
+            data-i18n="nav.cta"
+          >
+            Let's talk
+          </a>
+
+          <button
+            type="button"
+            data-menu-toggle
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open menu"
+            data-i18n-attr="aria-label:nav.menuOpen"
+            class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          >
+            <span class="h-px w-6 bg-paper"></span>
+            <span class="h-px w-6 bg-paper"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================== MOBILE MENU ============================== -->
+    <div
+      id="mobile-menu"
+      data-menu-panel
+      data-open="false"
+      class="fixed inset-0 z-40 flex translate-x-full flex-col justify-center gap-8 bg-ink px-8 transition-transform duration-300 ease-out data-[open=true]:translate-x-0 lg:hidden"
+    >
+      <nav aria-label="Mobile navigation" class="flex flex-col gap-6">
+        <a class="nav-link flex items-center gap-3 font-display text-3xl text-gray-500 transition-colors duration-300" href="#home" data-nav-link="home">
+          <span aria-hidden="true" class="nav-dot h-1.5 w-1.5 rounded-full bg-current"></span>
+          <span data-i18n="nav.home">Home</span>
+        </a>
+        <a class="nav-link flex items-center gap-3 font-display text-3xl text-gray-500 transition-colors duration-300" href="#about" data-nav-link="about">
+          <span aria-hidden="true" class="nav-dot h-1.5 w-1.5 rounded-full bg-current"></span>
+          <span data-i18n="nav.about">About</span>
+        </a>
+        <a class="nav-link flex items-center gap-3 font-display text-3xl text-gray-500 transition-colors duration-300" href="#work" data-nav-link="work">
+          <span aria-hidden="true" class="nav-dot h-1.5 w-1.5 rounded-full bg-current"></span>
+          <span data-i18n="nav.work">Work</span>
+        </a>
+        <a class="nav-link flex items-center gap-3 font-display text-3xl text-gray-500 transition-colors duration-300" href="#skills" data-nav-link="skills">
+          <span aria-hidden="true" class="nav-dot h-1.5 w-1.5 rounded-full bg-current"></span>
+          <span data-i18n="nav.skills">Skills</span>
+        </a>
+        <a class="nav-link flex items-center gap-3 font-display text-3xl text-gray-500 transition-colors duration-300" href="#contact" data-nav-link="contact">
+          <span aria-hidden="true" class="nav-dot h-1.5 w-1.5 rounded-full bg-current"></span>
+          <span data-i18n="nav.contact">Contact</span>
+        </a>
+      </nav>
+    </div>
+
+    <main id="main" class="pt-20">
+          <!-- ============================== HERO ============================== -->
+          <section
+            id="home"
+            data-parallax-section
+            class="relative scroll-mt-20 overflow-hidden pb-24 pt-16 md:pb-32 md:pt-24"
+          >
+            <!-- Camada decorativa de parallax -->
+            <div
+              data-speed="0.15"
+              aria-hidden="true"
+              class="pointer-events-none absolute inset-x-0 top-0 -z-10 select-none text-center font-display text-[22vw] font-bold leading-none text-paper opacity-[0.04]"
+            >
+              DEV
+            </div>
+
+            <div class="mx-auto grid w-full max-w-[1920px] gap-16 px-6 md:px-10 lg:grid-cols-2 lg:items-center lg:gap-10">
+              <div class="min-w-0">
+                <p data-hero-eyebrow class="mb-4 text-xs uppercase tracking-[0.3em] text-gray-400" data-i18n="hero.eyebrow">
+                  Full-Stack Developer
+                </p>
+
+                <h1 class="font-display break-words text-[clamp(2.5rem,6.5vw,5rem)] font-medium uppercase leading-[0.9]">
+                  <div data-hero-title-line class="overflow-hidden py-[0.15em] -my-[0.15em]">
+                    <span class="block" data-i18n="hero.titleLine1">I BUILD</span>
+                  </div>
+                  <div data-hero-title-line class="overflow-hidden py-[0.15em] -my-[0.15em]">
+                    <span class="block" data-i18n="hero.titleLine2">DIGITAL</span>
+                  </div>
+                  <div data-hero-title-line class="overflow-hidden py-[0.15em] -my-[0.15em]">
+                    <span class="block text-gray-500" data-i18n="hero.titleLine3">EXPERIENCES</span>
+                  </div>
+                </h1>
+
+                <p data-hero-subtitle class="mt-8 max-w-md text-base text-gray-400 md:text-lg" data-i18n="hero.subtitle">
+                  I build robust web solutions from back-end to interface, always with attention to detail.
+                </p>
+
+                <div data-hero-actions class="mt-10 flex flex-wrap items-center gap-4">
+                  <a
+                    href="#work"
+                    data-hover-scale
+                    class="btn-detail rounded-full px-7 py-3.5 text-sm"
+                    data-i18n="hero.ctaPrimary"
+                  >
+                    View projects
+                  </a>
+                  <a
+                    href="#contact"
+                    data-hover-scale
+                    class="cta-outline rounded-full border border-gray-700 px-7 py-3.5 text-sm text-paper transition-colors duration-300"
+                    data-i18n="hero.ctaSecondary"
+                  >
+                    Get in touch
+                  </a>
+                </div>
+              </div>
+
+              <div data-hero-media class="relative mx-auto w-full max-w-sm lg:max-w-md">
+                <div
+                  aria-hidden="true"
+                  class="absolute inset-x-8 bottom-0 top-12 -z-10 rounded-full bg-detail/25 blur-[70px]"
+                ></div>
+                <picture>
+                  <source type="image/webp" srcset="/assets/images/foto-hero.webp" />
+                  <img
+                    src="/assets/images/foto-hero.png"
+                    alt="Davi Schmitz, desenvolvedor full-stack"
+                    width="684"
+                    height="1266"
+                    loading="eager"
+                    fetchpriority="high"
+                    class="relative z-10 mx-auto block w-full h-auto select-none [mask-image:linear-gradient(to_bottom,black_94%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_94%,transparent_100%)]"
+                  />
+                </picture>
+              </div>
+            </div>
+
+            <p class="mx-auto mt-20 flex w-full max-w-[1920px] items-center justify-between px-6 text-[0.7rem] uppercase tracking-[0.3em] text-gray-500 md:px-10">
+              <span data-i18n="hero.location">Based in Brazil</span>
+              <span data-i18n="hero.scrollHint">Scroll</span>
+            </p>
+          </section>
+
+          <!-- ============================== ABOUT ============================== -->
+          <section id="about" class="scroll-mt-20 border-t border-gray-800 py-24 md:py-32">
+            <div class="mx-auto grid w-full max-w-[1920px] gap-16 px-6 md:grid-cols-2 md:gap-20 md:px-10">
+              <div data-reveal class="flex h-full flex-col justify-between gap-10">
+                <div>
+                  <p class="mb-4 text-xs uppercase tracking-[0.3em] text-gray-400" data-i18n="about.eyebrow">About me</p>
+                  <h2 class="font-display text-4xl uppercase md:text-5xl" data-i18n="about.title">Who I am</h2>
+
+                  <div class="mt-8 flex flex-col gap-5 text-gray-400 md:text-lg">
+                    <p data-i18n="about.paragraph1">
+                      I'm a Full-Stack Developer currently studying Computer Science at UniRitter. My journey started
+                      in 2024 with a technical degree in IT and an internship at the company I still work for today.
+                      Since January 2025, I've been working there as a junior developer.
+                    </p>
+                    <p data-i18n="about.paragraph2">
+                      Day to day I work with Python, Django, HTML5, CSS3 and vanilla JavaScript, along with libraries
+                      like Bootstrap, Reportlab, Chart.js and FullCalendar. I'm currently diving deeper into Django
+                      REST Framework, with Vue.js as my next step.
+                    </p>
+                  </div>
+                </div>
+
+                <div data-socials class="flex flex-wrap items-center gap-3"></div>
+              </div>
+
+              <div class="flex flex-col justify-between gap-10">
+                <div data-reveal class="relative w-full max-w-[30rem]">
+                  <div
+                    aria-hidden="true"
+                    class="absolute -inset-8 -z-10 rounded-full bg-detail/25 blur-[90px]"
+                  ></div>
+                  <picture>
+                    <source type="image/webp" srcset="/assets/images/foto-quem-sou-eu.webp" />
+                    <img
+                      src="/assets/images/foto-quem-sou-eu.png"
+                      alt="Davi Schmitz programando em seu notebook"
+                      width="1069"
+                      height="1158"
+                      loading="lazy"
+                      class="relative z-10 mx-auto block w-full h-auto select-none"
+                      style="mask-image: radial-gradient(ellipse 92% 90% at 50% 42%, black 35%, rgba(0,0,0,0.65) 62%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 92% 90% at 50% 42%, black 35%, rgba(0,0,0,0.65) 62%, transparent 100%);"
+                    />
+                  </picture>
+                </div>
+
+                <div class="w-full max-w-[30rem]">
+                  <div id="about-stats" data-reveal class="grid grid-cols-3 gap-6"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============================== PROJECTS ============================== -->
+          <section id="work" class="scroll-mt-20 border-t border-gray-800 py-24 md:py-32">
+            <div class="mx-auto w-full max-w-[1920px] px-6 md:px-10">
+              <div data-reveal class="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p class="mb-4 text-xs uppercase tracking-[0.3em] text-gray-400" data-i18n="projects.eyebrow">
+                    Selected work
+                  </p>
+                  <h2 class="font-display text-4xl uppercase md:text-5xl" data-i18n="projects.title">Projects</h2>
+                </div>
+              </div>
+
+              <div id="projects-grid"></div>
+            </div>
+          </section>
+
+          <!-- ============================== SKILLS ============================== -->
+          <section id="skills" class="scroll-mt-20 border-t border-gray-800 py-24 md:py-32">
+            <div class="mx-auto w-full max-w-[1920px] px-6 md:px-10">
+              <div data-reveal class="mb-16">
+                <p class="mb-4 text-xs uppercase tracking-[0.3em] text-gray-400" data-i18n="skills.eyebrow">Toolkit</p>
+                <h2 class="font-display text-4xl uppercase md:text-5xl" data-i18n="skills.title">Technologies I use</h2>
+              </div>
+
+            </div>
+
+            <div data-reveal class="marquee-viewport relative mx-auto mt-16 w-full max-w-[1920px] overflow-hidden">
+              <div id="skills-grid" class="marquee-track flex w-max gap-4"></div>
+            </div>
+          </section>
+
+          <!-- ============================== CONTACT ============================== -->
+          <section
+            id="contact"
+            class="scroll-mt-20 border-t border-gray-800 bg-surface-2 py-24 md:py-32"
+          >
+            <div class="mx-auto flex w-full max-w-[1920px] flex-col items-start gap-10 px-6 md:px-10">
+              <p data-reveal class="text-xs uppercase tracking-[0.3em] text-gray-400" data-i18n="contact.eyebrow">
+                Contact
+              </p>
+
+              <h2 data-reveal class="font-display text-4xl uppercase md:text-5xl" data-i18n="contact.title">
+                LET'S TALK
+              </h2>
+
+              <p data-reveal class="max-w-lg text-base text-gray-400 md:text-lg" data-i18n="contact.subtitle">
+                I'm available for new projects and collaborations. Message me on WhatsApp and let's talk about your idea.
+              </p>
+
+              <div
+                data-reveal
+                class="mt-3 flex w-full flex-col items-start gap-6 rounded-3xl border border-gray-700 bg-ink px-8 py-10"
+              >
+                <div class="flex items-center gap-5">
+                  <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-detail">
+                    <span aria-hidden="true" class="icon-mask h-6 w-6 bg-white" style="mask-image:url(/assets/icons/whatsapp.svg); -webkit-mask-image:url(/assets/icons/whatsapp.svg);"></span>
+                  </span>
+                  <div>
+                    <h3 class="font-display text-xl text-paper" data-i18n="contact.cta.title">Talk to me now</h3>
+                    <p class="text-sm text-gray-400" data-i18n="contact.cta.subtitle">Quick reply, straight to your phone.</p>
+                  </div>
+                </div>
+
+                <a
+                  data-hover-scale
+                  href="https://wa.me/5551989940899"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-detail w-full shrink-0 rounded-full px-7 py-3.5 text-center text-sm sm:w-fit"
+                  data-i18n="contact.cta.button"
+                >
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- ============================== FOOTER ============================== -->
+        <footer class="border-t border-gray-800 py-12">
+          <div class="mx-auto flex w-full max-w-[1920px] flex-col items-center gap-6 px-6 text-center md:flex-row md:justify-between md:px-10 md:text-left">
+            <div class="flex items-center gap-3">
+              <img
+                data-logo="footer"
+                src="/assets/images/logo-escura-reduzida.svg"
+                alt="davisch.dev"
+                width="34"
+                height="40"
+                class="h-9 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="flex flex-col gap-1 text-left">
+                <span class="font-display text-sm text-paper">davisch.dev</span>
+                <span class="text-xs text-gray-500">
+                  © <span data-current-year>2026</span> davisch.dev. <span data-i18n="footer.rights">All rights reserved.</span>
+                </span>
+              </div>
+            </div>
+
+            <div data-socials class="flex flex-wrap items-center justify-center gap-3"></div>
+
+            <a href="#home" data-hover-scale class="link-underline text-xs uppercase tracking-widest text-gray-400" data-i18n="footer.backToTop">
+              Back to top
+            </a>
+          </div>
+        </footer>
+
+    <!-- Botão flutuante de WhatsApp -->
+    <a
+      href="https://wa.me/5551989940899"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp"
+      data-i18n-attr="aria-label:contact.cta.button"
+      data-hover-scale
+      class="btn-detail fixed bottom-6 right-[max(1.5rem,calc(50%_-_960px_+_1.5rem))] z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-xl shadow-detail/30"
+    >
+      <span
+        aria-hidden="true"
+        class="icon-mask h-6 w-6 bg-current"
+        style="mask-image:url(/assets/icons/whatsapp.svg); -webkit-mask-image:url(/assets/icons/whatsapp.svg);"
+      ></span>
+    </a>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+# davisch.dev
+
+> Personal portfolio of Davi Schmitz, Full-Stack developer.
+
+## About
+
+Full-Stack developer studying Computer Science at UniRitter, working professionally since 2024
+(junior developer, PJ, since January 2025). Builds with Python, Django, HTML5, CSS3, vanilla
+JavaScript and Bootstrap, plus libraries like Reportlab, Chart.js and FullCalendar. Currently
+learning Django REST Framework, with Vue.js as the next step.
+
+## Sections
+
+- Projects: selected work, case by case
+- Skills: Python, Django, HTML5, CSS3, JavaScript, Bootstrap, Git
+- Contact: email, WhatsApp and social media
+
+## Contact
+
+- Email: davimarianosm@gmail.com
+- GitHub: https://github.com/Dsm0514
+- LinkedIn: https://www.linkedin.com/in/davi-schmitz-mariano-b0013621b/
+- Blog: https://dsm0514.github.io/mitzideas/

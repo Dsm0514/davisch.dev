@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+
+Sitemap: https://davisch.dev/sitemap.xml

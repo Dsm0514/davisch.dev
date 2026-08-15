@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Davi Schmitz | Full-Stack-Entwickler",
+    "description": "Persönliches Portfolio von Davi Schmitz, Full-Stack-Entwickler. Projekte, Fähigkeiten und Kontakt."
+  },
+  "nav": {
+    "home": "Start",
+    "about": "Über mich",
+    "work": "Projekte",
+    "skills": "Fähigkeiten",
+    "contact": "Kontakt",
+    "cta": "Lass uns sprechen",
+    "themeLabel": "Design wechseln",
+    "languageLabel": "Sprache",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen"
+  },
+  "hero": {
+    "eyebrow": "Full-Stack-Entwickler",
+    "titleLine1": "ICH GESTALTE",
+    "titleLine2": "DIGITALE",
+    "titleLine3": "ERLEBNISSE",
+    "subtitle": "Ich baue robuste Web-Lösungen vom Backend bis zur Oberfläche, immer mit Liebe zum Detail.",
+    "ctaPrimary": "Projekte ansehen",
+    "ctaSecondary": "Kontakt aufnehmen",
+    "location": "ANSÄSSIG IN BRASILIEN",
+    "scrollHint": "Scrollen"
+  },
+  "about": {
+    "eyebrow": "Über mich",
+    "title": "Wer ich bin",
+    "paragraph1": "Ich bin Full-Stack-Entwickler und studiere derzeit Informatik an der UniRitter. Mein Weg begann 2024 mit einer technischen Ausbildung in IT und einem Praktikum in dem Unternehmen, in dem ich noch heute arbeite. Seit Januar 2025 bin ich dort als Junior-Entwickler tätig.",
+    "paragraph2": "Im Alltag arbeite ich mit Python, Django, HTML5, CSS3 und reinem JavaScript sowie Bibliotheken wie Bootstrap, Reportlab, Chart.js und FullCalendar. Aktuell vertiefe ich mich in Django REST Framework, Vue.js ist mein nächster Schritt.",
+    "stats": [
+      { "value": "+2", "label": "Jahre Erfahrung" },
+      { "value": "+0", "label": "Abgeschlossene Projekte" },
+      { "value": "100%", "label": "Sorgfalt bei jedem Detail" }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Ausgewählte Arbeiten",
+    "title": "Projekte",
+    "viewAll": "Alle Projekte ansehen",
+    "viewProject": "Projekt ansehen",
+    "viewRepo": "Auf GitHub ansehen",
+    "items": [
+      {
+        "title": "CosmoWear",
+        "description": "Ein E-Commerce mit individuellem visuellem Auftritt und Einkaufserlebnis, aufgebaut auf Shopify.",
+        "tags": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify", "Magnific"],
+        "image": "/assets/images/cosmowear-hero",
+        "link": "https://cosmowear-ucllsxfc.myshopify.com/",
+        "repo": "https://github.com/Dsm0514/cosmowear"
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Werkzeuge",
+    "title": "Technologien, die ich beherrsche"
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "title": "LASS UNS SPRECHEN",
+    "subtitle": "Ich bin offen für neue Projekte und Kooperationen. Schreib mir auf WhatsApp und lass uns über deine Idee sprechen.",
+    "cta": {
+      "title": "Jetzt mit mir sprechen",
+      "subtitle": "Schnelle Antwort, direkt auf dein Handy.",
+      "button": "Auf WhatsApp schreiben"
+    }
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "backToTop": "Nach oben"
+  },
+  "project": {
+    "notice": "Beispielinhalt. Diese Seite wird für jedes Projekt individuell angepasst.",
+    "back": "Alle Projekte",
+    "aboutTitle": "Über das Projekt",
+    "stackTitle": "Verwendete Technologien",
+    "galleryTitle": "Galerie",
+    "liveSite": "Live-Seite ansehen",
+    "viewRepo": "Repository ansehen",
+    "prevProject": "Vorheriges Projekt",
+    "nextProject": "Nächstes Projekt"
+  },
+  "langs": {
+    "pt-BR": "Português (Brasil)",
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  }
+}

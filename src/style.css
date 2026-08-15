@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+/* Fontes self-hosted via npm (@fontsource) — sem CDN */
+@import "@fontsource-variable/archivo/wght.css";
+@import "@fontsource-variable/inter/wght.css";
+
+/* ==========================================================================
+   Design tokens — única fonte de verdade para cor e tipografia.
+   Troque os valores aqui para restylizar o site inteiro.
+
+   Paleta da marca: branco #FDFDFD, preto #1F1A25, detalhe (destaque forte)
+   #07084D e detalhe baixo-impacto #4A4A58. "ink"/"paper" e a escala de
+   cinza são tokens *reativos ao tema* — o mesmo nome de classe (bg-ink,
+   text-gray-400...) resolve para um valor diferente conforme
+   html[data-theme], então nenhuma marcação precisa de variante dark:/light:.
+   ========================================================================== */
+@theme {
+  --color-white: #fdfdfd;
+  --color-black: #1f1a25;
+  --color-detail: #07084d;
+  --color-detail-soft: #4a4a58;
+
+  /* Fundo/texto principal — invertem entre os temas. */
+  --color-ink: #fdfdfd;
+  --color-paper: #1f1a25;
+  --color-surface-2: #f3f3f6;
+
+  /* Escala de cinza usada na marcação existente: 300–600 são tons de texto
+     secundário (derivados do "detalhe baixo-impacto"); 700–800 são tons de
+     borda/preenchimento sutil. */
+  --color-gray-300: rgba(31, 26, 37, 0.75);
+  --color-gray-400: #4a4a58;
+  --color-gray-500: rgba(31, 26, 37, 0.55);
+  --color-gray-600: rgba(31, 26, 37, 0.55);
+  --color-gray-700: #d9d9e0;
+  --color-gray-800: #f3f3f6;
+
+  --font-display: "Archivo Variable", "Archivo", system-ui, sans-serif;
+  --font-body: "Inter Variable", "Inter", system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html[data-theme="dark"] {
+    --color-ink: #1f1a25;
+    --color-paper: #fdfdfd;
+    --color-surface-2: #2c2530;
+
+    --color-gray-300: rgba(253, 253, 253, 0.78);
+    --color-gray-400: rgba(253, 253, 253, 0.62);
+    --color-gray-500: rgba(253, 253, 253, 0.46);
+    --color-gray-600: rgba(253, 253, 253, 0.46);
+    --color-gray-700: #3a3340;
+    --color-gray-800: #2c2530;
+  }
+
+  html {
+    background: var(--color-ink);
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.35s var(--ease-out-expo), color 0.35s var(--ease-out-expo);
+  }
+
+  ::selection {
+    background: var(--color-detail);
+    color: var(--color-white);
+  }
+
+  /* Scrollbar customizada (webkit) */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-800);
+    border-radius: 999px;
+    border: 2px solid var(--color-ink);
+  }
+
+  /* Respeita quem pediu menos movimento no sistema operacional */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* A regra acima crava a duração em ~0, mas numa animação infinita isso
+       faz o navegador repetir o ciclo inteiro a cada 0.01ms — a faixa fica
+       tremendo em vez de simplesmente parar. Trava a posição de vez. */
+    .marquee-track {
+      animation: none !important;
+    }
+  }
+}
+
+@layer components {
+  /* Estado inicial de elementos animados via GSAP — evita "flash" antes do JS
+     rodar. A classe [data-js-ready] é adicionada no <html> quando o motor de
+     animação assume o controle; sem JS (ou antes dele carregar), o conteúdo
+     permanece visível. */
+  html:not([data-js-ready]) [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Ícone do botão de tema: sol/lua mostram a ação (pro que vai virar),
+     não o estado atual — no escuro mostra o sol (clique pra clarear). */
+  [data-icon-sun] { display: none; }
+  [data-icon-moon] { display: inline-flex; }
+  html[data-theme="dark"] [data-icon-sun] { display: inline-flex; }
+  html[data-theme="dark"] [data-icon-moon] { display: none; }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(2.5rem);
+  }
+
+  /* Botão sólido com fundo do "detalhe" (azul da marca). Estado normal, hover
+     e borda mudam conforme o tema — ver comentário abaixo de cada bloco.
+     Não usar em elementos fora do fluxo de botões (ex: o CTA de WhatsApp da
+     seção de contato fica de fora de propósito). */
+  .btn-detail {
+    background-color: var(--color-detail);
+    color: var(--color-white);
+    border: 1px solid transparent;
+    transition: background-color 0.25s var(--ease-out-expo), color 0.25s var(--ease-out-expo), border-color 0.25s var(--ease-out-expo);
+  }
+
+  /* Estado normal, tema escuro: ganha borda branca pra se destacar do fundo
+     escuro (no tema claro o fundo já claro dispensa isso). */
+  html[data-theme="dark"] .btn-detail {
+    border-color: var(--color-white);
+  }
+
+  /* Hover, tema claro: inverte pra fundo branco / texto e borda pretos. */
+  .btn-detail:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-black);
+  }
+
+  /* Hover, tema escuro: mesmo fundo branco, mas texto e borda no azul da
+     marca em vez de preto. */
+  html[data-theme="dark"] .btn-detail:hover {
+    color: var(--color-detail);
+    border-color: var(--color-detail);
+  }
+
+
+  /* Recolore qualquer SVG monocromático via CSS (background-color +
+     mask), em vez de depender da cor gravada dentro do arquivo. Assim um
+     ícone baixado do Flaticon (geralmente preto sólido) pode virar branco,
+     cinza ou herdar a cor do texto (bg-current) sem precisar editar o SVG. */
+  .icon-mask {
+    display: inline-block;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Indicador de seção ativa na nav — independente do hover. O JS
+     (scrollspy) alterna data-active conforme o scroll; aqui só a resposta
+     visual: bolinha aparece e o texto vai para a cor "ligada". */
+  .nav-link .nav-dot {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-link[data-active="true"] .nav-dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .nav-link[data-active="true"] {
+    color: var(--color-paper);
+  }
+
+  /* Slider infinito de skills. O track tem a lista duplicada lado a lado e
+     anda -50% do próprio comprimento — como a segunda cópia é idêntica à
+     primeira, o ponto de chegada é visualmente igual ao ponto de partida e o
+     loop parece contínuo, sem salto. */
+  .marquee-viewport {
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 34s linear infinite;
+  }
+
+  .marquee-viewport:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-item {
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Ao entrar na área do slider, todo o resto esmaece — só o ícone sob o
+     cursor volta ao normal e ganha destaque. */
+  .marquee-viewport:hover .marquee-item {
+    opacity: 0.35;
+  }
+
+  .marquee-viewport:hover .marquee-item:hover {
+    opacity: 1;
+    transform: scale(1.08);
+    border-color: var(--color-paper);
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Faixa tem 4 cópias lado a lado (ver content.js) — anda exatamente a
+       largura de 1 cópia (1/4 do comprimento total), não a metade. */
+    transform: translateX(-25%);
+  }
+}
+
+@layer utilities {
+  /* Precisa estar em @layer utilities (não base/components) pra vencer a
+     utility border-gray-700 aplicada no mesmo elemento: camadas do Tailwind
+     ignoram especificidade entre si, então uma regra de camada anterior
+     nunca vence uma utility mesmo com :hover. */
+  .cta-outline:hover {
+    border-color: var(--color-detail);
+  }
+
+  html[data-theme="dark"] .cta-outline:hover {
+    border-color: var(--color-white);
+  }
+}
