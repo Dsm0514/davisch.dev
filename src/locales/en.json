@@ -32,9 +32,18 @@
     "paragraph1": "I'm a Full-Stack Developer currently studying Computer Science at UniRitter. My journey started in 2024 with a technical degree in IT and an internship at the company I still work for today. Since January 2025, I've been working there as a junior developer.",
     "paragraph2": "Day to day I work with Python, Django, HTML5, CSS3 and vanilla JavaScript, along with libraries like Bootstrap, Reportlab, Chart.js and FullCalendar. I'm currently diving deeper into Django REST Framework, with Vue.js as my next step.",
     "stats": [
-      { "value": "+2", "label": "Years of experience" },
-      { "value": "+0", "label": "Projects delivered" },
-      { "value": "100%", "label": "Attention to every detail" }
+      {
+        "value": "+2",
+        "label": "Years of experience"
+      },
+      {
+        "value": "+0",
+        "label": "Projects delivered"
+      },
+      {
+        "value": "100%",
+        "label": "Attention to every detail"
+      }
     ]
   },
   "projects": {
@@ -47,7 +56,14 @@
       {
         "title": "CosmoWear",
         "description": "An e-commerce with a custom visual identity and shopping experience, built on Shopify.",
-        "tags": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify", "Magnific"],
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Liquid",
+          "Shopify",
+          "Magnific"
+        ],
         "image": "/assets/images/cosmowear-hero",
         "link": "https://cosmowear-ucllsxfc.myshopify.com/",
         "repo": "https://github.com/Dsm0514/cosmowear"
@@ -61,10 +77,8 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "LET'S TALK",
-    "subtitle": "I'm available for new projects and collaborations. Message me on WhatsApp and let's talk about your idea.",
+    "subtitle": "I'm available for new projects and collaborations. Let's build something great together.",
     "cta": {
-      "title": "Talk to me now",
-      "subtitle": "Quick reply, straight to your phone.",
       "button": "Chat on WhatsApp"
     }
   },

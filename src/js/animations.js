@@ -29,6 +29,12 @@ function keepTriggersInSync() {
 function heroIntro() {
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
+  // [data-hero-media] (a foto, LCP da hero) fica de fora dessa timeline de
+  // propósito: como .from() aplica opacity:0 assim que o JS roda e só anima
+  // de volta quando o playhead chega nela, encadeada por último ela ficava
+  // invisível por segundos em conexões lentas — vira o elemento de LCP e
+  // atrasa o Speed Index sem necessidade. A foto já entra visível via HTML/
+  // CSS; só o texto ganha a animação de entrada.
   tl.from('[data-hero-eyebrow]', { opacity: 0, y: 20, duration: 0.6 })
     .from(
       '[data-hero-title-line] > span',
@@ -37,7 +43,6 @@ function heroIntro() {
     )
     .from('[data-hero-subtitle]', { opacity: 0, y: 20, duration: 0.6 }, '-=0.45')
     .from('[data-hero-actions] > *', { opacity: 0, y: 16, duration: 0.5, stagger: 0.1 }, '-=0.35')
-    .from('[data-hero-media]', { opacity: 0, scale: 1.04, duration: 1 }, '-=0.7')
 
   return tl
 }
@@ -155,7 +160,7 @@ export function initAnimations() {
 
   if (prefersReducedMotion()) {
     gsap.set(
-      '[data-reveal], [data-hero-title-line] > span, [data-hero-eyebrow], [data-hero-subtitle], [data-hero-actions] > *, [data-hero-media]',
+      '[data-reveal], [data-hero-title-line] > span, [data-hero-eyebrow], [data-hero-subtitle], [data-hero-actions] > *',
       { opacity: 1, y: 0, scale: 1, yPercent: 0 }
     )
     return

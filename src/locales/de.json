@@ -32,9 +32,18 @@
     "paragraph1": "Ich bin Full-Stack-Entwickler und studiere derzeit Informatik an der UniRitter. Mein Weg begann 2024 mit einer technischen Ausbildung in IT und einem Praktikum in dem Unternehmen, in dem ich noch heute arbeite. Seit Januar 2025 bin ich dort als Junior-Entwickler tätig.",
     "paragraph2": "Im Alltag arbeite ich mit Python, Django, HTML5, CSS3 und reinem JavaScript sowie Bibliotheken wie Bootstrap, Reportlab, Chart.js und FullCalendar. Aktuell vertiefe ich mich in Django REST Framework, Vue.js ist mein nächster Schritt.",
     "stats": [
-      { "value": "+2", "label": "Jahre Erfahrung" },
-      { "value": "+0", "label": "Abgeschlossene Projekte" },
-      { "value": "100%", "label": "Sorgfalt bei jedem Detail" }
+      {
+        "value": "+2",
+        "label": "Jahre Erfahrung"
+      },
+      {
+        "value": "+0",
+        "label": "Abgeschlossene Projekte"
+      },
+      {
+        "value": "100%",
+        "label": "Sorgfalt bei jedem Detail"
+      }
     ]
   },
   "projects": {
@@ -47,7 +56,14 @@
       {
         "title": "CosmoWear",
         "description": "Ein E-Commerce mit individuellem visuellem Auftritt und Einkaufserlebnis, aufgebaut auf Shopify.",
-        "tags": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify", "Magnific"],
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Liquid",
+          "Shopify",
+          "Magnific"
+        ],
         "image": "/assets/images/cosmowear-hero",
         "link": "https://cosmowear-ucllsxfc.myshopify.com/",
         "repo": "https://github.com/Dsm0514/cosmowear"
@@ -61,10 +77,8 @@
   "contact": {
     "eyebrow": "Kontakt",
     "title": "LASS UNS SPRECHEN",
-    "subtitle": "Ich bin offen für neue Projekte und Kooperationen. Schreib mir auf WhatsApp und lass uns über deine Idee sprechen.",
+    "subtitle": "Ich bin offen für neue Projekte und Kooperationen. Lass uns gemeinsam etwas Großartiges schaffen.",
     "cta": {
-      "title": "Jetzt mit mir sprechen",
-      "subtitle": "Schnelle Antwort, direkt auf dein Handy.",
       "button": "Auf WhatsApp schreiben"
     }
   },

@@ -4,11 +4,11 @@ const STORAGE_KEY = 'davisch-theme'
 // contraste em fundo claro. Ou seja: tema escuro usa a logo clara, e vice-versa.
 const LOGO_SRC = {
   nav: {
-    dark: '/assets/images/logo-clara.svg',
+    dark: '/assets/images/logo-clara-davisch-dev-completa.svg',
     light: '/assets/images/logo-escura.svg'
   },
   footer: {
-    dark: '/assets/images/logo-clara-reduzida.svg',
+    dark: '/assets/images/desenho-logo-clara-davisch-dev.svg',
     light: '/assets/images/logo-escura-reduzida.svg'
   }
 }
@@ -28,7 +28,7 @@ function applyLogos(theme) {
 
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#1F1A25' : '#FDFDFD')
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#090A15' : '#FDFDFD')
   document.querySelector('[data-theme-toggle]')?.setAttribute('aria-pressed', String(theme === 'dark'))
   applyLogos(theme)
 }

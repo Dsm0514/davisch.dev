@@ -64,7 +64,11 @@ function renderProjects(dict) {
 
     const thumb = project.image
       ? `<picture>
-          <source type="image/webp" srcset="${project.image}.webp" />
+          <source
+            type="image/webp"
+            srcset="${project.image}-384w.webp 384w, ${project.image}-768w.webp 768w, ${project.image}.webp 1600w"
+            sizes="(min-width: 1024px) 384px, 100vw"
+          />
           <img
             src="${project.image}.png"
             alt=""

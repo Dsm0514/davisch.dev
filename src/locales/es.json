@@ -32,9 +32,18 @@
     "paragraph1": "Soy desarrollador Full-Stack y actualmente estudio Ciencias de la Computación en UniRitter. Mi camino empezó en 2024 con un curso técnico en Informática y unas prácticas en la empresa donde sigo trabajando hoy. Desde enero de 2025 trabajo allí como desarrollador junior.",
     "paragraph2": "En el día a día trabajo con Python, Django, HTML5, CSS3 y JavaScript puro, además de librerías como Bootstrap, Reportlab, Chart.js y FullCalendar. Ahora mismo estoy profundizando en Django REST Framework, con Vue.js como mi próximo paso.",
     "stats": [
-      { "value": "+2", "label": "Años de experiencia" },
-      { "value": "+0", "label": "Proyectos entregados" },
-      { "value": "100%", "label": "Dedicación en cada detalle" }
+      {
+        "value": "+2",
+        "label": "Años de experiencia"
+      },
+      {
+        "value": "+0",
+        "label": "Proyectos entregados"
+      },
+      {
+        "value": "100%",
+        "label": "Dedicación en cada detalle"
+      }
     ]
   },
   "projects": {
@@ -47,7 +56,14 @@
       {
         "title": "CosmoWear",
         "description": "Un e-commerce con identidad visual y experiencia de compra personalizadas, construido sobre Shopify.",
-        "tags": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify", "Magnific"],
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Liquid",
+          "Shopify",
+          "Magnific"
+        ],
         "image": "/assets/images/cosmowear-hero",
         "link": "https://cosmowear-ucllsxfc.myshopify.com/",
         "repo": "https://github.com/Dsm0514/cosmowear"
@@ -61,10 +77,8 @@
   "contact": {
     "eyebrow": "Contacto",
     "title": "HABLEMOS",
-    "subtitle": "Estoy disponible para nuevos proyectos y colaboraciones. Escríbeme por WhatsApp y hablemos de tu idea.",
+    "subtitle": "Estoy disponible para nuevos proyectos y colaboraciones. Construyamos algo increíble juntos.",
     "cta": {
-      "title": "Hablemos ahora",
-      "subtitle": "Respuesta rápida, directo a tu celular.",
       "button": "Hablar por WhatsApp"
     }
   },

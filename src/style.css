@@ -8,21 +8,22 @@
    Design tokens — única fonte de verdade para cor e tipografia.
    Troque os valores aqui para restylizar o site inteiro.
 
-   Paleta da marca: branco #FDFDFD, preto #1F1A25, detalhe (destaque forte)
-   #07084D e detalhe baixo-impacto #4A4A58. "ink"/"paper" e a escala de
+   Paleta da marca: branco #FDFDFD, preto #090A15, detalhe (destaque forte)
+   #07084D, botão #0C18BA e detalhe baixo-impacto #4A4A58. "ink"/"paper" e a escala de
    cinza são tokens *reativos ao tema* — o mesmo nome de classe (bg-ink,
    text-gray-400...) resolve para um valor diferente conforme
    html[data-theme], então nenhuma marcação precisa de variante dark:/light:.
    ========================================================================== */
 @theme {
   --color-white: #fdfdfd;
-  --color-black: #1f1a25;
+  --color-black: #090a15;
   --color-detail: #07084d;
   --color-detail-soft: #4a4a58;
+  --color-button: #0c18ba;
 
   /* Fundo/texto principal — invertem entre os temas. */
   --color-ink: #fdfdfd;
-  --color-paper: #1f1a25;
+  --color-paper: #090a15;
   --color-surface-2: #f3f3f6;
 
   /* Escala de cinza usada na marcação existente: 300–600 são tons de texto
@@ -43,7 +44,7 @@
 
 @layer base {
   html[data-theme="dark"] {
-    --color-ink: #1f1a25;
+    --color-ink: #090a15;
     --color-paper: #fdfdfd;
     --color-surface-2: #2c2530;
 
@@ -133,35 +134,26 @@
     transform: translateY(2.5rem);
   }
 
-  /* Botão sólido com fundo do "detalhe" (azul da marca). Estado normal, hover
-     e borda mudam conforme o tema — ver comentário abaixo de cada bloco.
-     Não usar em elementos fora do fluxo de botões (ex: o CTA de WhatsApp da
-     seção de contato fica de fora de propósito). */
+  /* Botão sólido com fundo azul (--color-button). Estado normal e hover
+     mudam conforme o tema — ver comentário abaixo de cada bloco. Não usar em
+     elementos fora do fluxo de botões (ex: o CTA de WhatsApp da seção de
+     contato fica de fora de propósito). */
   .btn-detail {
-    background-color: var(--color-detail);
+    background-color: var(--color-button);
     color: var(--color-white);
-    border: 1px solid transparent;
-    transition: background-color 0.25s var(--ease-out-expo), color 0.25s var(--ease-out-expo), border-color 0.25s var(--ease-out-expo);
+    transition: background-color 0.25s var(--ease-out-expo), color 0.25s var(--ease-out-expo);
   }
 
-  /* Estado normal, tema escuro: ganha borda branca pra se destacar do fundo
-     escuro (no tema claro o fundo já claro dispensa isso). */
-  html[data-theme="dark"] .btn-detail {
-    border-color: var(--color-white);
-  }
-
-  /* Hover, tema claro: inverte pra fundo branco / texto e borda pretos. */
+  /* Hover, tema claro: inverte pra fundo branco / texto preto. */
   .btn-detail:hover {
     background-color: var(--color-white);
     color: var(--color-black);
-    border-color: var(--color-black);
   }
 
-  /* Hover, tema escuro: mesmo fundo branco, mas texto e borda no azul da
-     marca em vez de preto. */
+  /* Hover, tema escuro: mesmo fundo branco, mas texto no azul do botão em
+     vez de preto. */
   html[data-theme="dark"] .btn-detail:hover {
-    color: var(--color-detail);
-    border-color: var(--color-detail);
+    color: var(--color-button);
   }
 
 
@@ -221,25 +213,8 @@
     animation: marquee-scroll 34s linear infinite;
   }
 
-  .marquee-viewport:hover .marquee-track {
-    animation-play-state: paused;
-  }
-
   .marquee-item {
     opacity: 1;
-    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  /* Ao entrar na área do slider, todo o resto esmaece — só o ícone sob o
-     cursor volta ao normal e ganha destaque. */
-  .marquee-viewport:hover .marquee-item {
-    opacity: 0.35;
-  }
-
-  .marquee-viewport:hover .marquee-item:hover {
-    opacity: 1;
-    transform: scale(1.08);
-    border-color: var(--color-paper);
   }
 }
 

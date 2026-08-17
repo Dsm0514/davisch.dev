@@ -32,9 +32,18 @@
     "paragraph1": "Je suis développeur Full-Stack et j'étudie actuellement l'informatique à UniRitter. Mon parcours a commencé en 2024 avec une formation technique en informatique et un stage dans l'entreprise où je travaille encore aujourd'hui. Depuis janvier 2025, j'y suis développeur junior.",
     "paragraph2": "Au quotidien, je travaille avec Python, Django, HTML5, CSS3 et JavaScript vanilla, ainsi que des bibliothèques comme Bootstrap, Reportlab, Chart.js et FullCalendar. J'approfondis actuellement Django REST Framework, avec Vue.js comme prochaine étape.",
     "stats": [
-      { "value": "+2", "label": "Années d'expérience" },
-      { "value": "+0", "label": "Projets livrés" },
-      { "value": "100%", "label": "Attention portée à chaque détail" }
+      {
+        "value": "+2",
+        "label": "Années d'expérience"
+      },
+      {
+        "value": "+0",
+        "label": "Projets livrés"
+      },
+      {
+        "value": "100%",
+        "label": "Attention portée à chaque détail"
+      }
     ]
   },
   "projects": {
@@ -47,7 +56,14 @@
       {
         "title": "CosmoWear",
         "description": "Un e-commerce à l'identité visuelle et à l'expérience d'achat personnalisées, construit sur Shopify.",
-        "tags": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify", "Magnific"],
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Liquid",
+          "Shopify",
+          "Magnific"
+        ],
         "image": "/assets/images/cosmowear-hero",
         "link": "https://cosmowear-ucllsxfc.myshopify.com/",
         "repo": "https://github.com/Dsm0514/cosmowear"
@@ -61,10 +77,8 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "DISCUTONS",
-    "subtitle": "Je suis disponible pour de nouveaux projets et collaborations. Écrivez-moi sur WhatsApp et discutons de votre idée.",
+    "subtitle": "Je suis disponible pour de nouveaux projets et collaborations. Construisons quelque chose d'incroyable ensemble.",
     "cta": {
-      "title": "Discutons maintenant",
-      "subtitle": "Réponse rapide, directement sur votre téléphone.",
       "button": "Discuter sur WhatsApp"
     }
   },

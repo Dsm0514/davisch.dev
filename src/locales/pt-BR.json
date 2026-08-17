@@ -32,9 +32,18 @@
     "paragraph1": "Sou desenvolvedor Full-Stack e estou cursando Ciência da Computação na UniRitter. Minha trajetória começou em 2024, com um curso técnico em Informática e um estágio na empresa onde trabalho até hoje. Desde janeiro de 2025, atuo lá como desenvolvedor júnior PJ.",
     "paragraph2": "No dia a dia trabalho com Python, Django, HTML5, CSS3 e JavaScript puro, além de bibliotecas como Bootstrap, Reportlab, Chart.js e FullCalendar. Atualmente estou me aprofundando em Django REST Framework, com Vue.js como meu próximo passo de estudo.",
     "stats": [
-      { "value": "+2", "label": "Anos de experiência" },
-      { "value": "+0", "label": "Projetos entregues" },
-      { "value": "100%", "label": "Dedicação em cada detalhe" }
+      {
+        "value": "+2",
+        "label": "Anos de experiência"
+      },
+      {
+        "value": "+0",
+        "label": "Projetos entregues"
+      },
+      {
+        "value": "100%",
+        "label": "Dedicação em cada detalhe"
+      }
     ]
   },
   "projects": {
@@ -47,7 +56,14 @@
       {
         "title": "CosmoWear",
         "description": "E-commerce com identidade visual e experiência de compra personalizadas, construído sobre a Shopify.",
-        "tags": ["HTML", "CSS", "JavaScript", "Liquid", "Shopify", "Magnific"],
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Liquid",
+          "Shopify",
+          "Magnific"
+        ],
         "image": "/assets/images/cosmowear-hero",
         "link": "https://cosmowear-ucllsxfc.myshopify.com/",
         "repo": "https://github.com/Dsm0514/cosmowear"
@@ -61,10 +77,8 @@
   "contact": {
     "eyebrow": "Contato",
     "title": "VAMOS CONVERSAR",
-    "subtitle": "Estou disponível para novos projetos e colaborações. Me chame no WhatsApp e vamos conversar sobre sua ideia.",
+    "subtitle": "Estou disponível para novos projetos e colaborações. Vamos construir algo incrível juntos.",
     "cta": {
-      "title": "Fale comigo agora",
-      "subtitle": "Resposta rápida, direto no seu celular.",
       "button": "Falar no WhatsApp"
     }
   },

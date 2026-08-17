@@ -109,7 +109,7 @@
         </nav>
 
         <div class="flex items-center gap-3">
-          <!-- Botão de tema claro/escuro -->
+          <!-- Botão de tema claro/escuro
           <button
             type="button"
             data-theme-toggle
@@ -126,6 +126,7 @@
               <path d="M20.74 13.05a8.09 8.09 0 0 1-9.9-9.8.75.75 0 0 0-.95-1A10.05 10.05 0 1 0 21.7 14a.75.75 0 0 0-.96-.95z" />
             </svg>
           </button>
+          -->
 
           <!-- Seletor de idiomas (bandeiras) -->
           <div data-lang-switcher class="relative">
@@ -282,7 +283,11 @@
                   class="absolute inset-x-8 bottom-0 top-12 -z-10 rounded-full bg-detail/25 blur-[70px]"
                 ></div>
                 <picture>
-                  <source type="image/webp" srcset="/assets/images/foto-hero.webp" />
+                  <source
+                    type="image/webp"
+                    srcset="/assets/images/foto-hero-448w.webp 448w, /assets/images/foto-hero.webp 684w"
+                    sizes="(min-width: 1024px) 448px, 384px"
+                  />
                   <img
                     src="/assets/images/foto-hero.png"
                     alt="Davi Schmitz, desenvolvedor full-stack"
@@ -334,7 +339,11 @@
                     class="absolute -inset-8 -z-10 rounded-full bg-detail/25 blur-[90px]"
                   ></div>
                   <picture>
-                    <source type="image/webp" srcset="/assets/images/foto-quem-sou-eu.webp" />
+                    <source
+                      type="image/webp"
+                      srcset="/assets/images/foto-quem-sou-eu-480w.webp 480w, /assets/images/foto-quem-sou-eu.webp 1069w"
+                      sizes="480px"
+                    />
                     <img
                       src="/assets/images/foto-quem-sou-eu.png"
                       alt="Davi Schmitz programando em seu notebook"
@@ -388,46 +397,43 @@
           <!-- ============================== CONTACT ============================== -->
           <section
             id="contact"
-            class="scroll-mt-20 border-t border-gray-800 bg-surface-2 py-24 md:py-32"
+            class="relative scroll-mt-20 overflow-hidden border-t border-gray-800 py-24 md:py-36"
           >
-            <div class="mx-auto flex w-full max-w-[1920px] flex-col items-start gap-10 px-6 md:px-10">
+            <!-- Brilho decorativo atrás do CTA — mesmo motivo do hero/about, mas na cor
+                 do botão pra criar um "spotlight" natural sobre a ação principal. -->
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-button/20 blur-[130px]"
+            ></div>
+
+            <div class="mx-auto flex w-full max-w-4xl flex-col items-center gap-5 px-6 text-center md:px-10">
               <p data-reveal class="text-xs uppercase tracking-[0.3em] text-gray-400" data-i18n="contact.eyebrow">
                 Contact
               </p>
 
-              <h2 data-reveal class="font-display text-4xl uppercase md:text-5xl" data-i18n="contact.title">
+              <h2 data-reveal class="font-display text-4xl uppercase leading-[0.95] md:text-6xl lg:whitespace-nowrap" data-i18n="contact.title">
                 LET'S TALK
               </h2>
 
-              <p data-reveal class="max-w-lg text-base text-gray-400 md:text-lg" data-i18n="contact.subtitle">
-                I'm available for new projects and collaborations. Message me on WhatsApp and let's talk about your idea.
+              <p data-reveal class="max-w-md text-base text-gray-400 md:text-lg lg:max-w-none lg:whitespace-nowrap" data-i18n="contact.subtitle">
+                I'm available for new projects and collaborations. Let's build something great together.
               </p>
 
-              <div
+              <a
                 data-reveal
-                class="mt-3 flex w-full flex-col items-start gap-6 rounded-3xl border border-gray-700 bg-ink px-8 py-10"
+                data-hover-scale
+                href="https://wa.me/5551989940899"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-detail mt-4 inline-flex items-center gap-3 rounded-full px-8 py-4 text-base"
               >
-                <div class="flex items-center gap-5">
-                  <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-detail">
-                    <span aria-hidden="true" class="icon-mask h-6 w-6 bg-white" style="mask-image:url(/assets/icons/whatsapp.svg); -webkit-mask-image:url(/assets/icons/whatsapp.svg);"></span>
-                  </span>
-                  <div>
-                    <h3 class="font-display text-xl text-paper" data-i18n="contact.cta.title">Talk to me now</h3>
-                    <p class="text-sm text-gray-400" data-i18n="contact.cta.subtitle">Quick reply, straight to your phone.</p>
-                  </div>
-                </div>
-
-                <a
-                  data-hover-scale
-                  href="https://wa.me/5551989940899"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn-detail w-full shrink-0 rounded-full px-7 py-3.5 text-center text-sm sm:w-fit"
-                  data-i18n="contact.cta.button"
-                >
-                  Chat on WhatsApp
-                </a>
-              </div>
+                <span
+                  aria-hidden="true"
+                  class="icon-mask h-5 w-5 bg-current"
+                  style="mask-image:url(/assets/icons/whatsapp.svg); -webkit-mask-image:url(/assets/icons/whatsapp.svg);"
+                ></span>
+                <span data-i18n="contact.cta.button">Chat on WhatsApp</span>
+              </a>
             </div>
           </section>
         </main>
@@ -470,7 +476,7 @@
       aria-label="WhatsApp"
       data-i18n-attr="aria-label:contact.cta.button"
       data-hover-scale
-      class="btn-detail fixed bottom-6 right-[max(1.5rem,calc(50%_-_960px_+_1.5rem))] z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-xl shadow-detail/30"
+      class="btn-detail fixed bottom-6 right-[max(1.5rem,calc(50%_-_960px_+_1.5rem))] z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-xl shadow-button/30"
     >
       <span
         aria-hidden="true"
