@@ -67,6 +67,19 @@
         "image": "/assets/images/cosmowear-hero",
         "link": "https://cosmowear-ucllsxfc.myshopify.com/",
         "repo": "https://github.com/Dsm0514/cosmowear"
+      },
+      {
+        "title": "Jaciara Goddoi",
+        "description": "Landing page para nutricionista, con identidad visual propia y enfoque en conversión vía WhatsApp.",
+        "tags": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Magnific"
+        ],
+        "image": "/assets/images/nutri-jaci-godoi-hero",
+        "link": "https://dsm0514.github.io/site-nutri-jaci-godoi/",
+        "repo": "https://github.com/Dsm0514/site-nutri-jaci-godoi"
       }
     ]
   },
