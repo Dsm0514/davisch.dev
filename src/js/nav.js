@@ -79,6 +79,10 @@ function initLanguageSwitcher() {
 
     if (currentFlag) currentFlag.src = `/assets/flags/bandeira-${locale.flag}.svg`
     if (currentCode) currentCode.textContent = locale.short
+    // Inclui o código visível ("PT", "EN"...) no aria-label — sem isso o
+    // nome acessível ("Idioma") não contém o texto do botão, o que falha
+    // WCAG 2.5.3 (Label in Name) e o audit de a11y do Lighthouse.
+    toggle.setAttribute('aria-label', `${getCurrentDictionary().nav.languageLabel}: ${locale.short}`)
 
     menu.querySelectorAll('[data-locale-option]').forEach((button) => {
       const isActive = button.dataset.localeOption === activeCode
