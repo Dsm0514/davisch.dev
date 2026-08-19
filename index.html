@@ -440,8 +440,8 @@
 
         <!-- ============================== FOOTER ============================== -->
         <footer class="border-t border-gray-800 py-12">
-          <div class="mx-auto flex w-full max-w-[1920px] flex-col items-center gap-6 px-6 text-center md:flex-row md:justify-between md:px-10 md:text-left">
-            <div class="flex items-center gap-3">
+          <div class="mx-auto flex w-full max-w-[1920px] flex-col items-center gap-6 px-6 text-center md:grid md:grid-cols-3 md:items-center md:px-10 md:text-left">
+            <div class="flex items-center gap-3 md:justify-self-start">
               <img
                 data-logo="footer"
                 src="/assets/images/logo-escura-reduzida.svg"
@@ -460,9 +460,9 @@
               </div>
             </div>
 
-            <div data-socials class="flex flex-wrap items-center justify-center gap-3"></div>
+            <div data-socials class="flex flex-wrap items-center justify-center gap-3 md:justify-self-center"></div>
 
-            <a href="#home" data-hover-scale class="link-underline text-xs uppercase tracking-widest text-gray-400" data-i18n="footer.backToTop">
+            <a href="#home" data-hover-scale class="link-underline text-xs uppercase tracking-widest text-gray-400 md:justify-self-end" data-i18n="footer.backToTop">
               Back to top
             </a>
           </div>
